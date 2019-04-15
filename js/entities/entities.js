@@ -58,10 +58,11 @@ game.PlayerEntity = me.Entity.extend({
     }
 
     if (me.input.isKeyPressed('jump')) {
-      if (true || (!this.body.jumping && !this.body.falling)) {
+      if (!this.body.jumping && !this.body.falling) {
         // set current vel to the maximum defined value
         // gravity will then do the rest
         this.body.force.y = -this.body.maxVel.y
+        this.body.jumping = true
       }
     } else {
       this.body.force.y = 0
